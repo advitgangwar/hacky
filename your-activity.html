@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hostel Management System</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: #1a73e8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #1a73e8;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #1a73e8;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
+        }
+
+        /* Main Content */
+        .dashboard {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard h2 {
+            font-size: 2rem;
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+
+        /* Dashboard Sections */
+        .dashboard-section {
+            margin-bottom: 30px;
+        }
+
+        .dashboard-section h3 {
+            font-size: 1.5rem;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-section p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .dashboard-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dashboard-section li {
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-section li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-section li span {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a73e8;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .dashboard h2 {
+                font-size: 1.8rem;
+            }
+
+            .dashboard-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .dashboard-section p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-tachometer-alt"></i> Student Dashboard</h1>
+    </header>
+
+    <nav>
+        
+        <a href="home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+    </nav>
+
+    <div class="dashboard">
+        <h2>Welcome, Advit Gangwar</h2>
+
+        <!-- Personal Details -->
+        <div class="dashboard-section">
+            <h3>👤 Personal Details</h3>
+            <p><strong>Name:</strong> Advit Gangwar</p>
+            <p><strong>College ID:</strong> 2024KUCP1147</p>
+            <p><strong>Room No:</strong> 203, Block C</p>
+            <p><strong>Contact:</strong> 2024kucp1147@iiitkota.ac.in | +91 98765 43210</p>
+        </div>
+
+        <!-- Recent Complaints -->
+        <div class="dashboard-section">
+            <h3>📝 Recent Complaints</h3>
+            <ul>
+                <li>🚰 Washroom cleanliness issue - <span>February 25, 2025</span></li>
+                <li>💡 Electricity problem in Room 203 - <span>February 20, 2025</span></li>
+                <li>🚪 Door lock not working - <span>February 15, 2025</span></li>
+            </ul>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="dashboard-section">
+            <h3>📅 Recent Activities</h3>
+            <ul>
+                <li>🏆 Participated in Hackathon - <span>February 15, 2025</span></li>
+                <li>📅 Registered for AI Workshop - <span>February 20, 2025</span></li>
+                <li>🎤 Attended Tech Talk on Cybersecurity - <span>January 30, 2025</span></li>
+            </ul>
+        </div>
+
+        <!-- Latest Announcements -->
+        <div class="dashboard-section">
+            <h3>📢 Latest Announcements</h3>
+            <ul>
+                <li>🏠 Room Allotment Notice - <span>February 20, 2025</span></li>
+                <li>🚰 Water Supply Maintenance - <span>February 18, 2025</span></li>
+                <li>⏰ Curfew Timings Reminder - <span>February 15, 2025</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Hostel Management System | All rights reserved.</p>
+    </footer>
+</body>
+</html>

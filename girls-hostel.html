@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girls Hostel - Complaints</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: #e91e63;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .go-back-btn {
+            padding: 10px 20px;
+            background: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+        }
+
+        .go-back-btn:hover {
+            background: #c2185b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        /* Information Message */
+        .info-message {
+            background: #fce4ec;
+            color: #e91e63;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            border: 1px solid #f48fb1;
+        }
+
+        /* Notice Board */
+        .notice-board {
+            margin-top: 20px;
+        }
+
+        .notice-board h2 {
+            font-size: 1.8rem;
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+
+        #complaint-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #complaint-list li {
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #complaint-list li .category {
+            font-weight: 600;
+            color: #e91e63;
+        }
+
+        #complaint-list li .timestamp {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Add Complaint Button */
+        #add-complaint-btn {
+            padding: 12px 30px;
+            background: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #add-complaint-btn:hover {
+            background: #c2185b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        /* Complaint Box */
+        #complaint-box {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        #complaint-box textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        #complaint-box select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        #submit-complaint {
+            padding: 12px 30px;
+            background: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+        }
+
+        #submit-complaint:hover {
+            background: #c2185b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .notice-board h2 {
+                font-size: 1.5rem;
+            }
+
+            #add-complaint-btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-comments"></i> Girls Hostel Complaints</h1>
+    </header>
+
+    <div class="container">
+        <!-- Go Back Button -->
+        <button class="go-back-btn" onclick="goBack()">⬅ Go Back</button>
+
+        <!-- Information Message -->
+        <div class="info-message">
+            <i class="fas fa-info-circle"></i> Your complaints are sent to the respective authorities for resolution.
+        </div>
+
+        <!-- Notice Board for Past Complaints -->
+        <div class="notice-board">
+            <h2>📌 Past Complaints</h2>
+            <ul id="complaint-list">
+                <li>No complaints yet.</li>
+            </ul>
+        </div>
+
+        <!-- Add Complaint Button -->
+        <button id="add-complaint-btn">➕ Add Complaint</button>
+
+        <!-- Complaint Box (Initially Hidden) -->
+        <div id="complaint-box">
+            <select id="complaint-category">
+                <option value="" disabled selected>Select Complaint Category</option>
+                <option value="Infrastructure">Infrastructure Problem</option>
+                <option value="Washroom">Washroom Problem</option>
+                <option value="Electricity">Electricity Problem</option>
+                <option value="Water">Water Problem</option>
+                <option value="Other">Other</option>
+            </select>
+            <textarea id="complaint-text" placeholder="Write your complaint here..."></textarea>
+            <button id="submit-complaint">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addComplaintBtn = document.getElementById("add-complaint-btn");
+            const complaintBox = document.getElementById("complaint-box");
+            const submitComplaintBtn = document.getElementById("submit-complaint");
+            const complaintText = document.getElementById("complaint-text");
+            const complaintCategory = document.getElementById("complaint-category");
+            const complaintList = document.getElementById("complaint-list");
+
+            // Show Complaint Box on Button Click
+            addComplaintBtn.addEventListener("click", function () {
+                complaintBox.style.display = "flex";
+            });
+
+            // Submit Complaint
+            submitComplaintBtn.addEventListener("click", function () {
+                const category = complaintCategory.value;
+                const complaint = complaintText.value.trim();
+
+                if (category && complaint) {
+                    // Get current date and time
+                    const now = new Date();
+                    const date = now.toLocaleDateString();
+                    const time = now.toLocaleTimeString();
+
+                    // Add complaint to the notice board
+                    let newComplaint = document.createElement("li");
+                    newComplaint.innerHTML = `
+                        <span class="category">${category}:</span> ${complaint}
+                        <span class="timestamp">${date} ${time}</span>
+                    `;
+                    complaintList.appendChild(newComplaint);
+
+                    // Remove "No complaints yet." if it's the first complaint
+                    if (complaintList.children[0].textContent === "No complaints yet.") {
+                        complaintList.removeChild(complaintList.children[0]);
+                    }
+
+                    // Alert and reset form
+                    alert("Your complaint has been submitted!");
+                    complaintText.value = "";
+                    complaintCategory.value = "";
+                    complaintBox.style.display = "none"; // Hide complaint box after submission
+                } else {
+                    alert("Please select a category and enter a complaint before submitting.");
+                }
+            });
+        });
+
+        function goBack() {
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>

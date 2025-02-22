@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Hostel Management System</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: #1a73e8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #1a73e8;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #1a73e8;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
+        }
+
+        /* Main Content */
+        .notice-board, .past-announcements {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .notice-board h2, .past-announcements h2 {
+            font-size: 2rem;
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+
+        /* Announcement Cards */
+        .announcement {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .announcement:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .announcement h3 {
+            font-size: 1.5rem;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .announcement p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .announcement .date {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Past Announcements */
+        .past-announcements ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .past-announcements li {
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .past-announcements li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .past-announcements li span {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a73e8;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .notice-board h2, .past-announcements h2 {
+                font-size: 1.8rem;
+            }
+
+            .announcement h3 {
+                font-size: 1.3rem;
+            }
+
+            .announcement p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-bullhorn"></i> Hostel Announcements</h1>
+    </header>
+
+    <nav>
+        <a href="home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="your-activity.html"><i class="fas fa-tasks"></i> Student Dashboard</a>
+        <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+    </nav>
+
+    <section class="notice-board">
+        <h2>📢 Latest Announcements</h2>
+        <div class="announcement">
+            <h3>🏠 Room Allotment Notice</h3>
+            <p>Room allotment for the new semester begins on <strong>March 1st</strong>. Ensure you complete your documentation by <strong>February 28th</strong>.</p>
+            <span class="date">Posted: February 20, 2025</span>
+        </div>
+
+        <div class="announcement">
+            <h3>🚰 Water Supply Maintenance</h3>
+            <p>Water supply will be disrupted on <strong>February 25th</strong> from <strong>10 AM - 4 PM</strong> due to maintenance work. Please store water in advance.</p>
+            <span class="date">Posted: February 18, 2025</span>
+        </div>
+
+        <div class="announcement">
+            <h3>⏰ Curfew Timings Reminder</h3>
+            <p>All hostel residents must adhere to the curfew timings of <strong>10 PM</strong>. Strict action will be taken against violators.</p>
+            <span class="date">Posted: February 15, 2025</span>
+        </div>
+    </section>
+
+    <section class="past-announcements">
+        <h2>📜 Past Announcements</h2>
+        <ul>
+            <li>🏗 Renovation work in Block A completed. <span>January 30, 2025</span></li>
+            <li>🆕 New study rooms added in Hostel Block C. <span>January 15, 2025</span></li>
+            <li>🍽 Updated mess menu available on notice board. <span>January 5, 2025</span></li>
+            <li>🔧 Maintenance work in the common area completed. <span>December 20, 2024</span></li>
+            <li>🎄 Christmas celebration in the hostel on December 24th. <span>December 10, 2024</span></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Hostel Management System | All rights reserved.</p>
+    </footer>
+</body>
+</html>

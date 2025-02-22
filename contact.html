@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Hostel Management System</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://iiitkota.ac.in/static/media/frontjul27.b668eb02.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            position: relative;
+        }
+
+        /* Overlay for 50% transparency */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.5); /* 50% white overlay */
+            z-index: -1;
+        }
+
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a73e8;
+            margin: 0 auto; /* Center the title */
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            height: 60px;
+            width: auto;
+        }
+
+        .profile-container {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        .profile-container img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #1a73e8;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.3s ease-in-out;
+            color: #333;
+        }
+
+        .dropdown p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        nav a {
+            color: #1a73e8;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a.active {
+            background: #1a73e8;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #1557a0;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .custom-button {
+            padding: 15px 40px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .custom-button:hover {
+            background: #1557a0;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(26, 115, 232, 0.4);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 50px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .contact-info h2 {
+            font-size: 1.8rem;
+            color: #1a73e8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .contact-card a {
+            color: #1a73e8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #1557a0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-card {
+                width: 100%;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .custom-button {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container" onclick="toggleDropdown()">
+            <img src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg" 
+                 alt="Profile Image" id="profile-pic">
+            <div class="dropdown" id="dropdown-menu">
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>College ID:</strong> 12345678</p>
+            </div>
+        </div>
+        <h1>Hostel Management System</h1>
+        <img src="https://jhasiddhant.github.io/collegewebsite/logo.png" alt="IIIT Kota Logo" class="logo">
+    </header>
+    <nav>
+        <a href="home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="your-activity.html"><i class="fas fa-tasks"></i> Student Dashboard</a>
+        <a href="contact.html" class="active"><i class="fas fa-phone"></i> Contact</a>
+    </nav>
+
+    <!-- Button Group -->
+    <div class="button-group">
+        <button class="custom-button medical" onclick="location.href='medical.html'">
+            <i class="fas fa-medkit"></i> Medical
+        </button>
+        <button class="custom-button boys-hostel" onclick="location.href='boys-hostel.html'">
+            <i class="fas fa-male"></i> Boys Hostel
+        </button>
+        <button class="custom-button girls-hostel" onclick="location.href='girls-hostel.html'">
+            <i class="fas fa-female"></i> Girls Hostel
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <div class="contact-cards">
+                <!-- Authority Members -->
+                <div class="contact-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Dr. John Smith</h3>
+                    <p><a href="tel:+911234567890">+91 1234567890</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Dr. Jane Doe</h3>
+                    <p><a href="tel:+911234567891">+91 1234567891</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Mr. Rajesh Kumar</h3>
+                    <p><a href="tel:+911234567892">+91 1234567892</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Ms. Priya Sharma</h3>
+                    <p><a href="tel:+911234567893">+91 1234567893</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Mr. Anil Gupta</h3>
+                    <p><a href="tel:+911234567894">+91 1234567894</a></p>
+                </div>
+
+                <!-- Hostel Emails -->
+                <div class="contact-card">
+                    <i class="fas fa-male"></i>
+                    <h3>Boys Hostel</h3>
+                    <p><a href="mailto:boyshostel@iiitkota.ac.in">boyshostel@iiitkota.ac.in</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-female"></i>
+                    <h3>Girls Hostel</h3>
+                    <p><a href="mailto:girlshostel@iiitkota.ac.in">girlshostel@iiitkota.ac.in</a></p>
+                </div>
+
+                <!-- Institute Email -->
+                <div class="contact-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Institute</h3>
+                    <p><a href="mailto:info@iiitkota.ac.in">info@iiitkota.ac.in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for dropdown functionality
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdown-menu");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-container') && !event.target.matches('.profile-container *')) {
+                const dropdown = document.getElementById("dropdown-menu");
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        };
+    </script>
+</body>
+</html>

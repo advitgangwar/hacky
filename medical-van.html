@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Van Availability - Hostel Medical Services</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Overlay for better readability */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7); /* 70% white overlay */
+            z-index: -1;
+        }
+
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a73e8;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        nav a {
+            color: #1a73e8;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a.active {
+            background: #1a73e8;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #1557a0;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .container h2 {
+            font-size: 2rem;
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+
+        .status-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .status-card p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .status-card .available {
+            color: #4CAF50;
+        }
+
+        .status-card .unavailable {
+            color: #f44336;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .container h2 {
+                font-size: 1.8rem;
+            }
+
+            .status-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .status-card p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-ambulance"></i> Medical Van Availability</h1>
+    </header>
+
+    <nav>
+        <a href="home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a>
+        <a href="your-activity.html"><i class="fas fa-running"></i> Your Activity</a>
+        <a href="medical.html"><i class="fas fa-medkit"></i> Medical</a>
+        <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h2>Medical Van Status</h2>
+            <div class="status-card">
+                <h3>Availability: <span class="available">Available</span></h3>
+                <p><strong>Location:</strong> Near Boys Hostel, Parking Area</p>
+                <p><strong>Expected Arrival Time:</strong> N/A</p>
+            </div>
+            <!-- Uncomment below to simulate unavailable status -->
+            <!--
+            <div class="status-card">
+                <h3>Availability: <span class="unavailable">Unavailable</span></h3>
+                <p><strong>Expected Arrival Time:</strong> 30 minutes</p>
+            </div>
+            -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Hostel Management System. All rights reserved.</p>
+        <p>For medical assistance, contact: <strong>medical@hostelmanagement.com</strong> | Phone: <strong>+91 12345 67890</strong></p>
+    </footer>
+</body>
+</html>
